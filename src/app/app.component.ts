@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
+import { OSRSService } from '@myngapp/data-access';
 
 @Component({
   standalone: true,
@@ -9,6 +10,14 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   title = 'myngapp';
+
+  constructor(private osrsService: OSRSService ) {}
+
+  ngOnInit() {
+    this.osrsService.fetchData().subscribe(data => {
+      console.log(data);
+    })
+  }
 }

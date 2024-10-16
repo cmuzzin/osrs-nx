@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@myngapp/data-access": ["modules/data-access/src/index.ts"],
       "@myngapp/shared-ui": ["modules/shared/ui/src/index.ts"]
     }
   },
